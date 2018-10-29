@@ -40,20 +40,35 @@ nuevaPromesa(nombre)
   });
 
 function appendFile(nombreArchivo, contenido) {
-  nuevaPromesa("07-ejemplo.txt")
-    .then(contenido => {
-      console.log(contenido);
-      return nuevaPromesaEscritura(
-        "07-ejemplo2.txt",
-        contenido + "Adios amigos"
-      );
-    })
-    .then(contenidoArchivoEscrito => {
-      console.log(contenidoArchivoEscrito);
-    })
-    .catch(error => {
-      console.log("Catch", error);
+  return new Promise((resolve, reject) => {
+    fs.readFile(nombreArchivo, "utf-8", (err, contenidoLeidoDelArchivo) => {
+      if (err) {
+        reject(err);
+        //console.log("err");
+      } else {
+        resolve(contenidoLeidoDelArchivo);
+        return new Promise((resolve, reject) => {
+          fs.writeFile(
+            nombreArchivo,
+            contenidoLeidoDelArchivo + contenido,
+            err => {
+              if (err) {
+                reject(err);
+              } else {
+                resolve(contenidoLeidoDelArchivo + contenido);
+              }
+            }
+          );
+        });
+      }
     });
+  });
 }
 
-appendFile("06-texto.txt", "\nHola amigos");
+appendFile("07-ejemplo.txt", "\nHola amigos")
+  .then(contenido => {
+    console.log(contenido);
+  })
+  .catch(error => {
+    console.log("Catch", error);
+  });
