@@ -73,7 +73,6 @@ appendFile("07-ejemplo.txt", "\nHola amigos")
     console.log("Catch", error);
   });
 
-
 //EJERCICIO
 const promesaEjercicio = arregloStrings => {
   return new Promise((resolve, reject) => {
@@ -90,16 +89,17 @@ const promesaEjercicio = arregloStrings => {
         };
         respuestas.push(respuesta);
 
-        const estaCompletoElArreglo = respuestas.length === arregloStrings.length;
+        const estaCompletoElArreglo =
+          respuestas.length === arregloStrings.length;
 
         if (estaCompletoElArreglo) {
           resolve(respuestas);
         }
       });
+    });
   });
 };
 
-promesaEjercicio(["A", "B", "C"])
-  .then(respuestaEjercicio => {
-    console.log(respuestaEjercicio);
-  });  
+promesaEjercicio(["A", "B", "C"]).then(respuestaEjercicio => {
+  console.log(respuestaEjercicio);
+});
