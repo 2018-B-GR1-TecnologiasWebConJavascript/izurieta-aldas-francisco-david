@@ -94,8 +94,6 @@ const promesaEjercicio = arregloStrings => {
 
         if (estaCompletoElArreglo) {
           resolve(respuestas);
-        } else {
-          reject();
         }
       });
   });
@@ -104,8 +102,4 @@ const promesaEjercicio = arregloStrings => {
 promesaEjercicio(["A", "B", "C"])
   .then(respuestaEjercicio => {
     console.log(respuestaEjercicio);
-  })
-  .catch(() => {
-    console.log("Error");
-  });
-  
+  });  
