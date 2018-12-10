@@ -1,0 +1,21 @@
+<h3>Users Management</h3>
+
+<p>Manage your users.</p>
+
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="imprimir(user)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
