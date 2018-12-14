@@ -1,4 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import {
+  UserServiceService,
+  User
+} from "src/app/services/user-service.service";
 
 @Component({
   selector: "app-user-admin-route",
@@ -6,31 +10,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./user-admin-route.component.scss"]
 })
 export class UserAdminRouteComponent implements OnInit {
-  users: User[] = [
-    {
-      id: 1,
-      name: "Francisco"
-    },
-    {
-      id: 2,
-      name: "David"
-    }
-  ];
+  users: User[] = [];
 
-  constructor() {}
+  constructor(private readonly _userService: UserServiceService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.users = this._userService.users;
+  }
 
-  imprimir = (user: User) => {
-    console.log("Imprimir", user);
-    const index = this.users.findIndex(userAux => {
-      return user.id == userAux.id;
-    });
-    this.users.splice(index, 1);
-  };
-}
-
-interface User {
-  id?: number;
-  name?: string;
+  delete(user: User) {
+    this._userService.delete(user.id);
+  }
 }

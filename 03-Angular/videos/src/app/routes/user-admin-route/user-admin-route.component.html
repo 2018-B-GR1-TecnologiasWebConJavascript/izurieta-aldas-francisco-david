@@ -14,7 +14,10 @@
       <td>{{ user.id }}</td>
       <td>{{ user.name }}</td>
       <td>
-        <button class="btn btn-primary" (click)="imprimir(user)">Delete</button>
+        <button class="btn btn-danger" (click)="delete(user)">Delete</button>
+        <a [routerLink]="['/menu', 'user-detail', user.id]">
+          <button class="btn btn-primary ml-3">Details</button>
+        </a>
       </td>
     </tr>
   </tbody>

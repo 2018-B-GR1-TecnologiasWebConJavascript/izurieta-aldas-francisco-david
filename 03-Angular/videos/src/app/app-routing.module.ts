@@ -7,6 +7,7 @@ import { LoginRouteComponent } from "./routes/login-route/login-route.component"
 import { ErrorRouteComponent } from "./routes/error-route/error-route.component";
 import { UserAdminRouteComponent } from "./routes/user-admin-route/user-admin-route.component";
 import { ProductAdminRouteComponent } from "./routes/product-admin-route/product-admin-route.component";
+import { UserDetailsComponent } from "./routes/user-details/user-details.component";
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: "product-admin",
         component: ProductAdminRouteComponent
+      },
+      {
+        path: "user-detail/:userId",
+        component: UserDetailsComponent
       }
     ]
   },
