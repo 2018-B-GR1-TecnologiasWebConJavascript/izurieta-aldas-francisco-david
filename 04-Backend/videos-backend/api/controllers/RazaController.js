@@ -7,6 +7,14 @@
 
 module.exports = {
   helloWorld: (request, response) => {
-    return response.ok("Ok");
+    return response.ok('Ok');
+  },
+  buscarPorNombre: async (req, res) => {
+    const params = req.allParams();
+
+    var nombreCac = await Raza.find({
+      nombre: { startsWith: params.nombre }
+    });
+    return res.ok(nombreCac);
   }
 };

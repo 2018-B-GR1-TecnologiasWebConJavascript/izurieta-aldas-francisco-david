@@ -18,8 +18,9 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 
-  "/": { view: "pages/homepage" },
-  "GET /raza/helloWorld": "RazaController.helloWorld"
+  '/': { view: 'pages/homepage' },
+  'GET /raza/helloWorld': 'RazaController.helloWorld',
+  'GET /raza/buscarPorNombre': 'RazaController.buscarPorNombre'
 
   /***************************************************************************
    *                                                                          *
