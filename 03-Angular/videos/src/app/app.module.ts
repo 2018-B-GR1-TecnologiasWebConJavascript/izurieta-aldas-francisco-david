@@ -15,6 +15,7 @@ import { UserDetailsComponent } from './routes/user-details/user-details.compone
 import { HttpClientModule } from '@angular/common/http';
 import { RazaRestService } from './services/rest/raza-rest.service';
 import { CreateRazaRouteComponent } from './routes/create-raza-route/create-raza-route.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { CreateRazaRouteComponent } from './routes/create-raza-route/create-raza
     UserDetailsComponent,
     CreateRazaRouteComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UserServiceService, RazaRestService],
   bootstrap: [AppComponent]
 })
