@@ -21,4 +21,14 @@ export class RazaRestService {
       environment.url + this.modelName + `/${id}`
     ) as Observable<Raza>;
   }
+
+  create(nombre: string): Observable<Raza> {
+    const objetoAGuardar: Raza = {
+      nombre: nombre
+    };
+
+    const url = environment.url + this.modelName;
+
+    return this._httpClient.post(url, objetoAGuardar) as Observable<Raza>;
+  }
 }
