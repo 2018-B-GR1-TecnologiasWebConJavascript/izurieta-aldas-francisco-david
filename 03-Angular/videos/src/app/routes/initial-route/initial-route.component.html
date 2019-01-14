@@ -1,3 +1,10 @@
-<p>
-  initial-route works!
-</p>
+<h1>Peliculas</h1>
+
+<div *ngFor="let imagen of imagenes">
+  <app-imagen-pelicula
+    [nombre]="imagen.nombreImagen"
+    [titulo]="imagen.nombrePelicula"
+    [year]="imagen.year"
+  >
+  </app-imagen-pelicula>
+</div>
