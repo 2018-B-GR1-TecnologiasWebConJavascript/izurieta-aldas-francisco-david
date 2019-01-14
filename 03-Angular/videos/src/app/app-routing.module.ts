@@ -9,6 +9,7 @@ import { UserAdminRouteComponent } from './routes/user-admin-route/user-admin-ro
 import { ProductAdminRouteComponent } from './routes/product-admin-route/product-admin-route.component';
 import { UserDetailsComponent } from './routes/user-details/user-details.component';
 import { CreateRazaRouteComponent } from './routes/create-raza-route/create-raza-route.component';
+import { UpdateRazaRouteComponent } from './routes/update-raza-route/update-raza-route.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'create-raza',
         component: CreateRazaRouteComponent
+      },
+      {
+        path: 'update-raza/:idRaza',
+        component: UpdateRazaRouteComponent
       },
       {
         path: 'product-admin',

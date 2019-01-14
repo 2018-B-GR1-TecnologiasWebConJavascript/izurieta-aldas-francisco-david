@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RazaRestService } from './services/rest/raza-rest.service';
 import { CreateRazaRouteComponent } from './routes/create-raza-route/create-raza-route.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateRazaRouteComponent } from './routes/update-raza-route/update-raza-route.component';
+import { ImagenPeliculaComponent } from './components/imagen-pelicula/imagen-pelicula.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { FormsModule } from '@angular/forms';
     UserAdminRouteComponent,
     ProductAdminRouteComponent,
     UserDetailsComponent,
-    CreateRazaRouteComponent
+    CreateRazaRouteComponent,
+    UpdateRazaRouteComponent,
+    ImagenPeliculaComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UserServiceService, RazaRestService],

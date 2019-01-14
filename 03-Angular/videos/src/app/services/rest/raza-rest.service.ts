@@ -31,4 +31,16 @@ export class RazaRestService {
 
     return this._httpClient.post(url, objetoAGuardar) as Observable<Raza>;
   }
+
+  findOneById(id: number | string): Observable<Raza> {
+    const url = environment.url + this.modelName + '/' + id;
+
+    return this._httpClient.get(url) as Observable<Raza>;
+  }
+
+  updateOneById(raza: Raza): Observable<Raza> {
+    const url = environment.url + this.modelName + '/' + raza.id;
+
+    return this._httpClient.put(url, raza) as Observable<Raza>;
+  }
 }
