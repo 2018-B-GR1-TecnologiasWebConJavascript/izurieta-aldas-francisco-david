@@ -19,25 +19,25 @@ export class CreateRazaRouteComponent implements OnInit {
 
   ngOnInit() {}
 
-  crearRaza(formulario: NgForm) {
-    console.log(formulario);
+  crearRaza(razaObjeto) {
+    //console.log(formulario);
 
-    if (this.nombreContieneA(this.nombre)) {
-      const crearRaza$ = this._razaRestService.create(this.nombre).subscribe(
-        (raza: Raza) => {
-          alert(`Raza creada: ${this.nombre}`);
+    //if (this.nombreContieneA(this.nombre)) {
+    const crearRaza$ = this._razaRestService.create(razaObjeto).subscribe(
+      (raza: Raza) => {
+        alert(`Raza creada: ${razaObjeto.nombre}`);
 
-          const url = ['/menu', 'user-admin'];
+        const url = ['/menu', 'user-admin'];
 
-          this._router.navigate(url);
-        },
-        error => {
-          console.error('Error:', error);
-        }
-      );
-    } else {
+        this._router.navigate(url);
+      },
+      error => {
+        console.error('Error:', error);
+      }
+    );
+    /*     } else {
       alert('ERROR, No contiene una letra A');
-    }
+    } */
   }
 
   nombreContieneA(nombre: string): boolean {

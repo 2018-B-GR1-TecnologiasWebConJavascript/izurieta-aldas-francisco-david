@@ -32,6 +32,10 @@ export class InitialRouteComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  agregarCarrito(pelicula) {
+    console.log('Agregando a carrito', pelicula);
+  }
 }
 
 export interface Imagenes {

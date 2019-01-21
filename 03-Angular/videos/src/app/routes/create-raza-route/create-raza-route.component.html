@@ -1,61 +1,7 @@
 <h2>Create Raza</h2>
 <p>Cree razas de animales</p>
-<form #razaFormulario="ngForm" novalidate (submit)="crearRaza(razaFormulario)">
-  <pre>
-    formulario valido:{{ razaFormulario.valid }}
-    formulario invalido:{{ razaFormulario.invalid }}
-
-    formulario errores:{{ razaFormulario.errors }}
-
-    formulario touched:{{ razaFormulario.touched }}
-    formulario untouched:{{ razaFormulario.untouched }}
-
-    formulario dirty:{{ razaFormulario.dirty }}
-    formulario pristine:{{ razaFormulario.pristine }}
-  </pre>
-  <div class="form-group">
-    <!-- <p>{{ nombre }}</p> -->
-    <pre>
-        nombre valido:{{ nombreControl.valid }}
-        nombre invalido:{{ nombreControl.invalid }}
-    
-        nombre errores:{{ nombreControl.errors | json }}
-    
-        nombre touched:{{ nombreControl.touched }}
-        nombre untouched:{{ nombreControl.untouched }}
-    
-        nombre dirty:{{ nombreControl.dirty }}
-        nombre pristine:{{ nombreControl.pristine }}
-      </pre
-    >
-
-    <p *ngIf="nombreControl.errors">
-      Mensaje:
-      <span *ngIf="nombreControl.errors.required">Campo requerido</span>
-    </p>
-
-    <label for="name">Nombre</label>
-    <input
-      type="text"
-      id="name"
-      required
-      #nombreControl="ngModel"
-      placeholder="Escribe el nombre de una raza."
-      [(ngModel)]="nombre"
-      name="nombre"
-      class="form-control"
-    />
-  </div>
-
-  <a routerLink="/menu/user-admin">
-    <button class="btn btn-primary">Return</button>
-  </a>
-  <button type="reset" class="btn btn-primary">Reset</button>
-  <button
-    type="submit"
-    [disabled]="razaFormulario.invalid"
-    class="btn btn-primary"
-  >
-    Create Raza
-  </button>
-</form>
+<app-raza-form
+  [nombre]="nombre"
+  [nombreBoton]="'Crear'"
+  (formularioValido)="crearRaza($event)"
+></app-raza-form>

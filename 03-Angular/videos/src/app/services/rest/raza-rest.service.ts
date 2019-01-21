@@ -22,14 +22,10 @@ export class RazaRestService {
     ) as Observable<Raza>;
   }
 
-  create(nombre: string): Observable<Raza> {
-    const objetoAGuardar: Raza = {
-      nombre: nombre
-    };
-
+  create(raza: Raza): Observable<Raza> {
     const url = environment.url + this.modelName;
 
-    return this._httpClient.post(url, objetoAGuardar) as Observable<Raza>;
+    return this._httpClient.post(url, raza) as Observable<Raza>;
   }
 
   findOneById(id: number | string): Observable<Raza> {
