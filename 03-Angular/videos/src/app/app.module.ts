@@ -18,6 +18,8 @@ import { CreateRazaRouteComponent } from './routes/create-raza-route/create-raza
 import { FormsModule } from '@angular/forms';
 import { UpdateRazaRouteComponent } from './routes/update-raza-route/update-raza-route.component';
 import { ImagenPeliculaComponent } from './components/imagen-pelicula/imagen-pelicula.component';
+import { RazaFormComponent } from './components/raza-form/raza-form.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ImagenPeliculaComponent } from './components/imagen-pelicula/imagen-pel
     UserDetailsComponent,
     CreateRazaRouteComponent,
     UpdateRazaRouteComponent,
-    ImagenPeliculaComponent
+    ImagenPeliculaComponent,
+    RazaFormComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [UserServiceService, RazaRestService],

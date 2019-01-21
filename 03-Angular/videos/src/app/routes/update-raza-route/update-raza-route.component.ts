@@ -38,9 +38,11 @@ export class UpdateRazaRouteComponent implements OnInit {
     );
   }
 
-  actualizarRaza(formulario: NgForm) {
+  actualizarRaza(razaActualizada) {
+    razaActualizada.id = this.razaAActualizar.id;
+
     const razaActualizada$ = this._razaRestService.updateOneById(
-      this.razaAActualizar
+      razaActualizada
     );
 
     razaActualizada$.subscribe(

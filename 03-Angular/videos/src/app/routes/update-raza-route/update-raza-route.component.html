@@ -1,39 +1,9 @@
 <h2>Update Raza</h2>
 <p>Actualice razas de animales</p>
 <div *ngIf="razaAActualizar">
-  <form
-    #formularioActualizarRaza="ngForm"
-    novalidate
-    (submit)="actualizarRaza(formularioActualizarRaza)"
-  >
-    <div class="form-group">
-      <p *ngIf="inputNombre.errors">
-        Error:
-        <span *ngIf="inputNombre.errors.required">El nombre es requerido</span>
-      </p>
-
-      <label for="name">Nombre</label>
-      <input
-        type="text"
-        id="name"
-        required
-        #inputNombre="ngModel"
-        [(ngModel)]="razaAActualizar.nombre"
-        name="nombre"
-        class="form-control"
-      />
-    </div>
-
-    <a routerLink="/menu/user-admin">
-      <button class="btn btn-primary">Return</button>
-    </a>
-    <button type="reset" class="btn btn-primary">Reset</button>
-    <button
-      type="submit"
-      [disabled]="formularioActualizarRaza.invalid"
-      class="btn btn-primary"
-    >
-      Update Raza
-    </button>
-  </form>
+  <app-raza-form
+    [nombre]="razaAActualizar.nombre"
+    [nombreBoton]="'Actualizar'"
+    (formularioValido)="actualizarRaza($event)"
+  ></app-raza-form>
 </div>
