@@ -20,6 +20,10 @@ import { UpdateRazaRouteComponent } from './routes/update-raza-route/update-raza
 import { ImagenPeliculaComponent } from './components/imagen-pelicula/imagen-pelicula.component';
 import { RazaFormComponent } from './components/raza-form/raza-form.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/rest/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -38,8 +42,16 @@ import { LoginComponent } from './components/login/login.component';
     RazaFormComponent,
     LoginComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [UserServiceService, RazaRestService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    TableModule
+  ],
+  providers: [UserServiceService, RazaRestService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
