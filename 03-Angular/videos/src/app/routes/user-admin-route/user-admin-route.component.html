@@ -2,28 +2,36 @@
 
 <p>Manage your users.</p>
 
-<a routerLink="/menu/create-raza" class="btn btn-primary m-3">Create Raza</a>
+<a routerLink="/menu/create-raza"
+  ><button pButton type="button" label="Create Raza"></button>
+</a>
 
-<table class="table table-striped table-dark">
-  <thead>
+<p-table [value]="razas">
+  <ng-template pTemplate="header">
     <tr>
       <th>Id</th>
       <th>Name</th>
+      <th>Actions</th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let raza of razas">
+  </ng-template>
+  <ng-template pTemplate="body" let-raza>
+    <tr>
       <td>{{ raza.id }}</td>
       <td>{{ raza.nombre }}</td>
       <td>
-        <button class="btn btn-danger" (click)="delete(raza.id)">Delete</button>
+        <button
+          pButton
+          type="button"
+          label="Delete"
+          (click)="delete(raza.id)"
+        ></button>
         <a [routerLink]="['/menu', 'user-detail', raza.id]">
-          <button class="btn btn-primary ml-3">Details</button>
+          <button pButton type="button" label="Details"></button>
         </a>
         <a [routerLink]="['/menu', 'update-raza', raza.id]">
-          <button class="btn btn-success ml-3">Edit</button>
+          <button pButton type="button" label="Edit"></button>
         </a>
       </td>
     </tr>
-  </tbody>
-</table>
+  </ng-template>
+</p-table>
